@@ -1,0 +1,8 @@
+#!/bin/bash
+rm -rf wiibuild
+mkdir wiibuild && cd wiibuild
+
+PATH=$DEVKITPRO/tools/bin:$DEVKITPRO/devkitPPC/bin:$PATH
+powerpc-eabi-cmake .. -DBUILD_CPU_DEMOS=OFF -DBUILD_OPENGL3_DEMOS=OFF -DBUILD_BULLET2_DEMOS=OFF -DBUILD_EXTRAS=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_UNIT_TESTS=OFF -DCMAKE_INSTALL_PREFIX=$DEVKITPRO/portlibs/wii
+make VERBOSE=1 install
+
